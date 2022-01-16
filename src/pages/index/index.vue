@@ -18,11 +18,11 @@
 </template>
 
 <script>
-import home from '../index/plate/home'
-import mine from '../index/plate/mine'
-import community from '../index/plate/community'
-import schedule from '../index/plate/schedule'
-import square from '../index/plate/square'
+import home from '@/pages/index/plate/home'
+import mine from '@/pages/index/plate/mine'
+import community from '@/pages/index/plate/community'
+import schedule from '@/pages/index/plate/schedule'
+import square from '@/pages/index/plate/square'
 
 export default {
   data () {
