@@ -9,88 +9,20 @@
     </div>
     <div class="tabbar">
       <van-tabbar :active="active" @change="onChange">
-        <van-tabbar-item>
-          <image 
+        <van-tabbar-item v-for="(item, index) in icons" :key="index">
+          <image
             slot="icon" 
-            :src="icon.home.default" 
+            :src="item.default" 
             mode="aspectFit"
             :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'" 
           />
           <image
             slot="icon-active"
-            :src="icon.home.active"
+            :src="item.active"
             mode="aspectFit"
             :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
           />
-          <p>
-            首页
-          </p>
-        </van-tabbar-item>
-        <van-tabbar-item>
-          <image 
-            slot="icon" 
-            :src="icon.schedule.default" 
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <image
-            slot="icon-active"
-            :src="icon.schedule.active"
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <p>
-            课表
-          </p>
-        </van-tabbar-item>
-        <van-tabbar-item>
-          <image 
-            slot="icon" 
-            :src="icon.square.default" 
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <image
-            slot="icon-active"
-            :src="icon.square.active"
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <p>
-            广场
-          </p>
-        </van-tabbar-item>
-        <van-tabbar-item>
-          <image 
-            slot="icon" 
-            :src="icon.community.default" 
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <image
-            slot="icon-active"
-            :src="icon.community.active"
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <p>社区</p>
-        </van-tabbar-item>
-        <van-tabbar-item>
-          <image 
-            slot="icon" 
-            :src="icon.mine.default" 
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <image
-            slot="icon-active"
-            :src="icon.mine.active"
-            mode="aspectFit"
-            :style="'width:'+ iconWidth + ';height:'+ iconHeight + ';'"
-          />
-          <p>
-            我的
-          </p>
+          <p>{{ item.text }}</p>
         </van-tabbar-item>
       </van-tabbar>
     </div>
@@ -98,11 +30,11 @@
 </template>
 
 <script>
-import home from '@/pages/index/plate/home'
-import mine from '@/pages/index/plate/mine'
-import community from '@/pages/index/plate/community'
-import schedule from '@/pages/index/plate/schedule'
-import square from '@/pages/index/plate/square'
+import home from '@/pages/index/basic/home'
+import mine from '@/pages/index/basic/me'
+import community from '@/pages/index/basic/forum'
+import schedule from '@/pages/index/basic/schedule'
+import square from '@/pages/index/basic/square'
 
 export default {
   data () {
@@ -110,28 +42,29 @@ export default {
       active: 0,
       iconWidth: '34px',
       iconHeight: '25px',
-      icon: {
-        home: {
+      icons: [
+        {
           default: '../../static/images/tabbar/home.svg',
-          active: '../../static/images/tabbar/home_a.svg'
-        },
-        schedule: {
+          active: '../../static/images/tabbar/home_a.svg',
+          text: '首页'
+        }, {
           default: '../../static/images/tabbar/schedule.svg',
-          active: '../../static/images/tabbar/schedule_a.svg'
-        },
-        square: {
+          active: '../../static/images/tabbar/schedule_a.svg',
+          text: '课表'
+        }, {
           default: '../../static/images/tabbar/square.svg',
-          active: '../../static/images/tabbar/square_a.svg'
-        },
-        community: {
+          active: '../../static/images/tabbar/square_a.svg',
+          text: '广场'
+        }, {
           default: '../../static/images/tabbar/community.svg',
-          active: '../../static/images/tabbar/community_a.svg'
-        },
-        mine: {
+          active: '../../static/images/tabbar/community_a.svg',
+          text: '社区'
+        }, {
           default: '../../static/images/tabbar/mine.svg',
-          active: '../../static/images/tabbar/mine_a.svg'
+          active: '../../static/images/tabbar/mine_a.svg',
+          text: '我的'
         }
-      }
+      ]
     }
   },
   methods: {
