@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="container">
+    <div class="main-container">
       <home v-if="active==0"/>
       <schedule v-if="active==1"/>
       <square v-if="active==2"/>
       <community v-if="active==3"/>
       <mine v-if="active==4"/>
     </div>
-    <div class="tabbar">
+    <div class="main-tabbar">
       <van-tabbar :active="active" @change="onChange">
         <van-tabbar-item v-for="(item, index) in icons" :key="index">
           <image
@@ -86,8 +86,14 @@ export default {
 }
 </script>
 
-<style scoped>
-.tabbar p{
+<style>
+.main-tabbar p{
   font-size: 8px;
+}
+
+.main-tabbar .van-tabbar {
+  background-color: rgba(255,255,255,0.7);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 </style>

@@ -3,11 +3,11 @@ import store from '../store'
 
 /* 封装微信请求 */
 export async function request (obj) {
-  const token = store.state.user.token
+  const token = store.state.user.user.token
 
   let Authorization = ''
 
-  if (token !== '') {
+  if (token !== '' && token !== undefined) {
     Authorization = {
       'Authorization': 'Bearer ' + token
     }
@@ -28,7 +28,7 @@ export async function request (obj) {
         // 处理返回信息
         handleResult(res)
 
-        resolve(res.data.data)
+        resolve(res.data)
       },
 
       fail (e) {
@@ -85,11 +85,10 @@ function handleResult (res) {
   switch (code) {
     case 200:
       break
-    case 401 :
+    case 401:
       showToast('身份校验信息失败，请刷新页面重试！')
-      store.dispatch('getUserToken')
+      store.commit('CLEAR_USER')
       break
-
     default:
       let msg = res.data.message ? res.data.message : '未知错误，请重试！'
       showToast(msg)
