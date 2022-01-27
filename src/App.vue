@@ -10,18 +10,14 @@ export default {
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
+    // 启动时获取 token
+    const token = mpvue.getStorageSync('token') || ''
+    if (token !== '') {
+      this.$store.commit('UPDATE_TOKEN', token)
     } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
+      wx.navigateTo({
+        url: '/pages/login/main'
+      })
     }
   },
   log () {

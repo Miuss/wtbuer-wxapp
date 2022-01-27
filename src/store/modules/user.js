@@ -1,15 +1,27 @@
 const state = {
-  info: '',
-  token: ''
+  user: {},
+  token: '',
+  authenticated: false
 }
 
 const mutations = {
-  updateUserInfo (state, data) {
-    state.info = data
+
+  UPDATE_USER (state, data) {
+    state.user = data
+    state.token = data.token
+    state.authenticated = true
   },
-  updateUserToken (state, data) {
+
+  UPDATE_TOKEN (state, data) {
     state.token = data
+  },
+
+  CLEAR_USER (state) {
+    state.user = {}
+    state.token = ''
+    state.authenticated = false
   }
+
 }
 
 export default {
