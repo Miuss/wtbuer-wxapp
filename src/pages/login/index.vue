@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="login-bg">
-      <image style="background-image: url(http://tva1.sinaimg.cn/large/002ZE6Hrgy1guerewdsnkj62s02307wh02.jpg);"></image>
+      <image style="background-image: url('http://tva1.sinaimg.cn/large/002ZE6Hrgy1guerewdsnkj62s02307wh02.jpg');"></image>
     </div>
     <div class="login-box">
       <div class="logo"><image :src="logo"></image></div>
@@ -14,7 +14,7 @@
       <div class="sub-title">由人工智能学院学生运营 🤖</div>
     </div>
     <div class="login-action" style="bottom: 20px;">
-      <van-button color="#7232dd" custom-style="width: 100%" @click="login">微信账号快速登录</van-button>
+      <van-button type="primary" @tap="login">微信账号快速登录</van-button>
       <div class="login-tips">提示：登录后绑定教务账号才能查阅课表噢~</div>
     </div>
   </div>
@@ -57,7 +57,7 @@ export default {
         if (!res.code) {
           this.$store.commit('UPDATE_USER', res.data)
           mpvue.setStorageSync('token', res.data.token)
-          wx.navigateTo({
+          wx.redirectTo({
             url: '/pages/index/main'
           })
         } else {
@@ -65,6 +65,11 @@ export default {
         }
       } catch (err) {
         console.error(err)
+        wx.showToast({
+          title: err,
+          icon: 'none',
+          duration: 2000
+        })
       }
     }
   }

@@ -15,7 +15,7 @@ export default {
     if (token !== '') {
       this.$store.commit('UPDATE_TOKEN', token)
     } else {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/login/main'
       })
     }

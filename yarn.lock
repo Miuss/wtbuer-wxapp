@@ -97,6 +97,11 @@
   "resolved" "https://registry.npmmirror.com/@types/q/download/@types/q-1.5.5.tgz"
   "version" "1.5.5"
 
+"@vant/weapp@^1.10.2":
+  "integrity" "sha512-caqA0xQxM4lMRncFsRPPVMDdEzUBCJ4xdFXuKReXpEU3qwnVIP/WIjVDIi7mWyS7xqz8C9WfSW5JL4PrlSq31w=="
+  "resolved" "https://registry.npmmirror.com/@vant/weapp/-/weapp-1.10.2.tgz"
+  "version" "1.10.2"
+
 "abbrev@1":
   "integrity" "sha1-+PLIh60Qv2f2NPAFtph/7TF5qsg="
   "resolved" "https://registry.nlark.com/abbrev/download/abbrev-1.1.1.tgz"
@@ -4473,9 +4478,9 @@
     "rimraf" "^2.5.4"
     "run-queue" "^1.0.3"
 
-"mpvue-loader@^2.0.0":
-  "integrity" "sha1-YiDnDvH+y50p1eRPRuEHuQgb6OM="
-  "resolved" "https://registry.npm.taobao.org/mpvue-loader/download/mpvue-loader-2.0.1.tgz"
+"mpvue-loader@^2.0.1":
+  "integrity" "sha512-05iAwOnjfCKZKmqKy8JYXQeHFsGn8nqAODkVe6EbnS97wafb0TkU24TEer9jtfeBo9fHozgFjI4v96RaBxt4qg=="
+  "resolved" "https://registry.npmmirror.com/mpvue-loader/-/mpvue-loader-2.0.1.tgz"
   "version" "2.0.1"
   dependencies:
     "babelon" "^1.0.5"
@@ -4498,22 +4503,22 @@
     "vue-style-loader" "^3.0.0"
     "vue-template-es2015-compiler" "^1.5.3"
 
-"mpvue-template-compiler@^2.0.0":
-  "integrity" "sha1-aS2sJE/5urrpt9IG5lctD440EEo="
-  "resolved" "https://registry.npm.taobao.org/mpvue-template-compiler/download/mpvue-template-compiler-2.0.6.tgz"
+"mpvue-template-compiler@^2.0.6":
+  "integrity" "sha512-gFrveME33Efi1iC6aYZMqBg2IkRL3KW6iJD/wNf30nLTh1fyo/7lcTRKhQRcVf7qmwnqfexDzqsKI0Hd32J+Fw=="
+  "resolved" "https://registry.npmmirror.com/mpvue-template-compiler/-/mpvue-template-compiler-2.0.6.tgz"
   "version" "2.0.6"
   dependencies:
     "de-indent" "^1.0.2"
     "he" "^1.1.0"
 
 "mpvue-webpack-target@^1.0.3":
-  "integrity" "sha1-B6yfif3wqr+2vQecfwaMlGZgBqk="
-  "resolved" "https://registry.npm.taobao.org/mpvue-webpack-target/download/mpvue-webpack-target-1.0.3.tgz"
+  "integrity" "sha512-TeGn+caEkfqD2/dSEXoMz9TIGGaYVh/jl5XmZ6sMz+UPb3ZMYGFR2oCEITf1aXuYpp7MEGQ9FvT5bpxGxa72FQ=="
+  "resolved" "https://registry.npmmirror.com/mpvue-webpack-target/-/mpvue-webpack-target-1.0.3.tgz"
   "version" "1.0.3"
 
-"mpvue@^2.0.0":
-  "integrity" "sha1-4PBjQPCIeEjeS88TaM0P/OgSvcs="
-  "resolved" "https://registry.nlark.com/mpvue/download/mpvue-2.0.6.tgz"
+"mpvue@^2.0.6":
+  "integrity" "sha512-73IEH/ZEQsQCaxTSwSkRpF7ADnbLe/HgxyXyCnre6vdJIRZHTbrx3U2gbPUVOSLw8Qk8+ypnPZta7pDZt2LMtQ=="
+  "resolved" "https://registry.npmmirror.com/mpvue/-/mpvue-2.0.6.tgz"
   "version" "2.0.6"
 
 "ms@^2.1.1":
@@ -5419,9 +5424,9 @@
     "icss-replace-symbols" "^1.1.0"
     "postcss" "^6.0.1"
 
-"postcss-mpvue-wxss@^1.0.0":
-  "integrity" "sha1-XWSqCDAtp34gtEDotjZVleG08lA="
-  "resolved" "https://registry.nlark.com/postcss-mpvue-wxss/download/postcss-mpvue-wxss-1.0.2.tgz"
+"postcss-mpvue-wxss@^1.0.2":
+  "integrity" "sha512-42p9xz9emgoYrkn3QJHTYLse+NTVOADwyeBeJeeBx1+UfSaTHhAMZ/ncY509MAhDjb9DA3qbaa24GURijRq8xw=="
+  "resolved" "https://registry.npmmirror.com/postcss-mpvue-wxss/-/postcss-mpvue-wxss-1.0.2.tgz"
   "version" "1.0.2"
   dependencies:
     "postcss" "^6.0.8"
@@ -7283,9 +7288,9 @@
     "opener" "^1.4.3"
     "ws" "^4.0.0"
 
-"webpack-dev-middleware-hard-disk@^1.12.0":
-  "integrity" "sha1-IKwaPXAIqIr3bsP6OmsQfiiws6Y="
-  "resolved" "https://registry.npm.taobao.org/webpack-dev-middleware-hard-disk/download/webpack-dev-middleware-hard-disk-1.12.1.tgz"
+"webpack-dev-middleware-hard-disk@^1.12.1":
+  "integrity" "sha512-Xs9EaOuE2JaQ1VNwnZA6iYswhLOvk80PUoI1QBsDxVSuCx7lZ6hCbeCuno+7DWH9Bao5MmAIyDpFWzbT2OEAng=="
+  "resolved" "https://registry.npmmirror.com/webpack-dev-middleware-hard-disk/-/webpack-dev-middleware-hard-disk-1.12.1.tgz"
   "version" "1.12.1"
   dependencies:
     "mime" "^1.3.4"

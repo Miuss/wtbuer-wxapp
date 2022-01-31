@@ -1,0 +1,5 @@
+<import src="/pages/index/basic/home/index.vue.wxml" />
+<import src="/pages/index/basic/schedule/index.vue.wxml" />
+<import src="/pages/index/basic/square/index.vue.wxml" />
+<import src="/pages/index/basic/forum/index.vue.wxml" />
+<import src="/pages/index/basic/me/index.vue.wxml" />

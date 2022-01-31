@@ -1,0 +1,9 @@
+
+.main-tabbar ._p {
+  font-size: 16rpx;
+}
+.main-tabbar .van-tabbar {
+  background-color: rgba(255,255,255,0.7);
+  -webkit-backdrop-filter: blur(40rpx);
+  backdrop-filter: blur(40rpx);
+}
