@@ -1,0 +1,33 @@
+
+page {
+  background-color: #eeeeee;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+.nav-bar {
+  --padding-md: 16rpx;
+}
+.nav-bar.backdrop {
+  --nav-bar-background-color: rgba(255,255,255,0.7)!important;
+  -webkit-backdrop-filter: blur(40rpx);
+  backdrop-filter: blur(40rpx);
+}
+.nav-bar .logo {
+  margin-right: 3pt;
+  width: 64rpx;
+  height: 64rpx;
+}
+.nav-bar .title {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 12pt;
+  color: #444;
+}

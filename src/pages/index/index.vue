@@ -8,7 +8,7 @@
       <mine v-if="active==4"/>
     </div>
     <div class="main-tabbar">
-      <van-tabbar :active="active" @change="onChange">
+      <van-tabbar :active="active" @change="onChange" active-color="#4562e5" inactive-color="#444444" :placeholder="true">
         <van-tabbar-item v-for="(item, index) in icons" :key="index">
           <image
             slot="icon" 
@@ -26,6 +26,17 @@
         </van-tabbar-item>
       </van-tabbar>
     </div>
+    
+    <van-popup
+      :show="bindMember"
+      round
+      closeable
+      position="bottom"
+      custom-style="height: 70%;background: #eeeeee;"
+      @close="onClose"
+    >
+      <bindMemberForm></bindMemberForm>
+    </van-popup>
   </div>
 </template>
 
@@ -35,6 +46,7 @@ import mine from '@/pages/index/basic/me'
 import community from '@/pages/index/basic/forum'
 import schedule from '@/pages/index/basic/schedule'
 import square from '@/pages/index/basic/square'
+import bindMemberForm from '@/components/bindMemberForm'
 
 export default {
   data () {
@@ -67,10 +79,17 @@ export default {
       ]
     }
   },
+  computed: {
+    bindMember () {
+      return this.$store.getters.showBindMember
+    }
+  },
   methods: {
     onChange (event) {
-      console.log(event)
       this.active = event.mp.detail
+    },
+    onClose () {
+      this.$store.dispatch('showBindMember', false)
     }
   },
   components: {
@@ -78,10 +97,8 @@ export default {
     mine,
     community,
     schedule,
-    square
-  },
-  created () {
-
+    square,
+    bindMemberForm
   }
 }
 </script>

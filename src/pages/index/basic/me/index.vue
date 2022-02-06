@@ -1,56 +1,103 @@
 <template>
-  <div>
-    123
+  <div v-if="user !== ''">
+    <van-nav-bar custom-class="nav-bar" :fixed="true" :placeholder="true" :border="false">
+      <div class="title" slot="left">
+        <img class="logo" :src="logo" />
+        我的
+      </div>
+    </van-nav-bar>
+    <scroll-list :refreshLoading="refreshLoading" @refresh="initList" @loadmore="loadmore" :showTip="false">
+      <div class="user-avatar-card">
+        <div class="avatar">
+          <img class="icon" :src="user.avatarurl" />
+        </div>
+        <div class="info">
+          <div class="title">{{ user.nickname }}</div>
+          <div class="addtime">{{ user.addtime }}</div>
+        </div>
+      </div>
+      <van-cell-group>
+        <van-cell title="关于我们" is-link></van-cell>
+        <van-cell title="赞助支持" is-link></van-cell>
+        <van-cell title="分享小程序" is-link></van-cell>
+      </van-cell-group>
+    </scroll-list>
   </div>
 </template>
 
 <script>
-import { wxlogin, getUserProfile, request } from '@/utils/fetch'
+import logo from '@/assets/images/logo.png'
 
 export default {
   data () {
     return {
-
+      logo,
+      refreshLoading: false
     }
   },
   computed: {
     authenticated () {
       return this.$store.getters.authenticated
+    },
+    user () {
+      return this.$store.getters.user
     }
   },
   methods: {
-    async login () {
-      try {
-        const infoResult = await getUserProfile()
-        const loginResult = await wxlogin()
-
-        if (infoResult.userInfo === '' || loginResult.code === '') {
-          throw new Error('登录失败，请重试')
-        }
-
-        const res = await request({
-          url: '/user/login',
-          method: 'POST',
-          data: {
-            code: loginResult.code,
-            userInfo: JSON.stringify(infoResult.userInfo)
-          }
-        })
-
-        if (!res.code) {
-          this.$store.commit('UPDATE_USER', res.data)
-          mpvue.setStorageSync('token', res.data.token)
-        } else {
-          throw new Error('服务器处理错误，请重试')
-        }
-      } catch (err) {
-        console.error(err)
-      }
+    initList () {
+      this.refreshLoading = true
+      setTimeout(() => {
+        this.refreshLoading = false
+      }, 500)
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
+.user-avatar-card {
+	display: flex;
+  background-color: #ffffff;
+  align-items: center;
+	position: relative;
+	padding: 24rpx;
+	height: 98px;
+}
+
+.user-avatar-card .avatar {
+	display: flex;
+	position: relative;
+	transition: transform .3s;
+	border-radius: 5em;
+	background: #F5F5F5;
+}
+
+.user-avatar-card .avatar .icon {
+	border-radius: 5em;
+	width: 72px;
+	height: 72px;
+	background-color: #F5F5F5;
+	border: 3px solid #33333363;
+}
+
+.user-avatar-card .info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	flex: 1;
+	margin-left: 27rpx;
+	color: #444444;
+}
+
+.user-avatar-card .info .title {
+	font-size: 42rpx;
+	font-weight: 600;
+}
+
+.user-avatar-card .info .addtime {
+	font-size: 13px;
+	opacity: .6;
+	margin-top: 4px;
+}
 
 </style>

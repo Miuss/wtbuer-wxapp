@@ -1,0 +1,31 @@
+<template name="5687eeac">
+  <view class="_div data-v-54f9d394">
+    <view class="_div data-v-54f9d394 weekbar">
+      <view wx:key="index" key="{{index}}" class="_div data-v-54f9d394 item {{dayItem[1] ? 'active' : ''}}" wx:for="{{weekList}}" wx:for-index="index" wx:for-item="dayItem" style=" {{'width: ' + classItemWidth + 'px;'}}">
+        <view class="_div data-v-54f9d394 index">{{dayItem[0]}}</view>
+        <view class="_div data-v-54f9d394 info">{{dayItem[2]}}</view>
+      </view>
+    </view>
+    <view class="_div data-v-54f9d394 weekbar-position"></view>
+    <swiper indicator-dots="{{false}}" autoplay="{{false}}" current="{{week-1}}" bindchange="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_swiper data-v-54f9d394" style=" {{'height:' +  timeList.length * classItemHeight +  'px;background: #ffffff;position: relative;'}}">
+      <swiper-item wx:key="index" key="{{index}}" wx:for="{{courseList}}" wx:for-index="index" wx:for-item="item" class="_swiper-item data-v-54f9d394">
+        <view class="_div data-v-54f9d394 class" style=" {{'height:' + timeList.length * classItemHeight + 'px;width:100%;display:flex;'}}">
+          <view class="_div data-v-54f9d394 sidebar">
+            <view wx:key="timeIndex" key="{{timeIndex}}" class="_div data-v-54f9d394 item" wx:for="{{timeList}}" wx:for-index="timeIndex" wx:for-item="timeItem" style=" {{'height:' + classItemHeight + 'px;'}}">
+              <view class="_div data-v-54f9d394 time">{{timeItem[1]}}</view>
+              <view class="_div data-v-54f9d394 index">{{timeItem[0]}}</view>
+            </view>
+          </view>
+          <view wx:key="lineIndex" key="{{lineIndex}}" wx:for="{{timeList}}" wx:for-index="lineIndex" wx:for-item="lineItem" class="_div data-v-54f9d394">
+            <view class="_div data-v-54f9d394 class-line" style=" {{'margin-top:' + ((lineIndex + 1) * classItemHeight - 1) + 'px;'}}"></view>
+          </view>
+          <view wx:key="classIndex" key="{{classIndex}}" wx:for="{{item}}" wx:for-index="classIndex" wx:for-item="classItem" class="_div data-v-54f9d394">
+            <view class="_div data-v-54f9d394 flex-item kcb-item" bindtap="handleProxy" data-eventid="{{'0_'+index+'-'+classIndex}}" data-comkey="{{$k}}" style=" {{'width:' +  (classItemWidth - 2) +  'px;margin-left:' +  ((classItem.xqj - 1) * classItemWidth + 1) +  'px;margin-top:' +  ((classItem.skjc - 1) * classItemHeight + 1) +  'px;height:' +  (classItem.skcd * classItemHeight - 3) +  'px;background-color:' +  colorArrays[classIndex % 16] +  '60;'}}">
+              <view class="_div data-v-54f9d394 smalltext">{{classItem.kcmc}}@{{classItem.room}}</view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</template>

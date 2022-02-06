@@ -1,0 +1,22 @@
+<import src="/components/courseList.vue.wxml" /><template name="2242e39b">
+  <view class="_div data-v-2cafb2e2">
+    <van-nav-bar custom-class="nav-bar" fixed="{{true}}" placeholder="{{true}}" border="{{false}}" class="_van-nav-bar data-v-2cafb2e2">
+      <view class="_div data-v-2cafb2e2 title" slot="left" bindtap="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}">
+        <image class="_img data-v-2cafb2e2 logo" src="{{logo}}"></image>
+        <view class="_div data-v-2cafb2e2 timetable">
+          <picker bindchange="handleProxy" value="{{courseIds.index}}" range="{{semesterIds}}" range-key="year" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_picker data-v-2cafb2e2">
+            <view class="_div data-v-2cafb2e2 week">{{ weekPicker[week-1] }}</view>
+            <view class="_div data-v-2cafb2e2 semester">{{courseIds.year}}
+              <van-icon name="arrow-down" class="_van-icon data-v-2cafb2e2"></van-icon>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </van-nav-bar>
+    <view class="_div data-v-2cafb2e2 unbind-eams-member" wx:if="{{user.member_id === ''}}">
+      <van-empty description="尚未绑定教务系统账号" class="_van-empty data-v-2cafb2e2">
+        <van-button round type="primary" class="_van-button data-v-2cafb2e2 bottom-button" color="#4562e5" bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">立即绑定教务账号</van-button>
+      </van-empty>
+    </view><template wx:else data="{{...$root[$kk+'4'], $root}}" is="5687eeac"></template>
+  </view>
+</template>

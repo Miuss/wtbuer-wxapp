@@ -1,0 +1,23 @@
+<template name="c8b7d3ce">
+  <view class="_div data-v-f8706cb6">
+    <view class="_div data-v-f8706cb6 login-bg">
+      <image style="background-image: url('http://tva1.sinaimg.cn/large/002ZE6Hrgy1guerewdsnkj62s02307wh02.jpg');" class="_image data-v-f8706cb6"></image>
+    </view>
+    <view class="_div data-v-f8706cb6 login-box">
+      <view class="_div data-v-f8706cb6 logo">
+        <image src="{{logo}}" class="_image data-v-f8706cb6"></image>
+      </view>
+      <view class="_div data-v-f8706cb6 title">Wtbuer</view>
+      <view class="_div data-v-f8706cb6 sub-title">武汉工商学院学生社区</view>
+      <view class="_div data-v-f8706cb6 sub-title">咳咳，说点啥?</view>
+      <view class="_div data-v-f8706cb6 sub-title">我在划水，别打扰我 💦</view>
+      <view class="_div data-v-f8706cb6 sub-title">Emmmm，我说点啥？</view>
+      <view class="_div data-v-f8706cb6 sub-title">开发君：🙇🏻‍别嫁人，我努力！</view>
+      <view class="_div data-v-f8706cb6 sub-title">由人工智能学院学生运营 🤖</view>
+    </view>
+    <view class="_div data-v-f8706cb6 login-action" style="bottom: 20px;">
+      <van-button type="primary" bindtap="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_van-button data-v-f8706cb6">微信账号快速登录</van-button>
+      <view class="_div data-v-f8706cb6 login-tips">提示：登录后绑定教务账号才能查阅课表噢~</view>
+    </view>
+  </view>
+</template>

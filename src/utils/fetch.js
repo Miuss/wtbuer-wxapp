@@ -3,7 +3,7 @@ import store from '../store'
 
 /* 封装微信请求 */
 export async function request (obj) {
-  const token = store.state.user.user.token
+  const token = store.state.user.token
 
   let Authorization = ''
 
@@ -68,14 +68,6 @@ export async function wxlogin () {
   })
 }
 
-// 统一显示toast
-function showToast (message) {
-  wx.showToast({
-    title: message,
-    icon: 'none',
-    duration: 2000
-  })
-}
 /**
  * 处理code信息
  * @param res
@@ -86,11 +78,11 @@ function handleResult (res) {
     case 200:
       break
     case 401:
-      showToast('身份校验信息失败，请刷新页面重试！')
+      utils.showToast('身份校验信息失败，请刷新页面重试！')
       store.commit('CLEAR_USER')
       break
     default:
       let msg = res.data.message ? res.data.message : '未知错误，请重试！'
-      showToast(msg)
+      utils.showToast(msg)
   }
 }
