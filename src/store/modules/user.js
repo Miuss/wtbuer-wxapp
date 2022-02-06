@@ -5,7 +5,6 @@ const state = {
 }
 
 const mutations = {
-
   UPDATE_USER (state, data) {
     state.user = data
     state.token = data.token
@@ -14,6 +13,7 @@ const mutations = {
 
   UPDATE_TOKEN (state, data) {
     state.token = data
+    state.authenticated = true
   },
 
   CLEAR_USER (state) {

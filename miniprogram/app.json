@@ -11,8 +11,13 @@
     "backgroundColorTop": "#fff"
   },
   "usingComponents": {
+    "scroll-list": "./static/scroll-list/scroll-list",
+    "van-empty": "./static/vant/empty/index",
+    "van-tag": "./static/vant/tag/index",
     "van-tabbar": "./static/vant/tabbar/index",
     "van-tabbar-item": "./static/vant/tabbar-item/index",
+    "van-nav-bar": "./static/vant/nav-bar/index",
+    "van-notice-bar": "./static/vant/notice-bar/index",
     "van-search": "./static/vant/search/index",
     "van-row": "./static/vant/row/index",
     "van-col": "./static/vant/col/index",
@@ -28,8 +33,8 @@
     "van-popup": "./static/vant/popup/index",
     "van-icon": "./static/vant/icon/index",
     "van-panel": "./static/vant/panel/index",
-    "van-action-sheet": "./static/vant/cell-group/index",
     "van-area": "./static/vant/area/index",
-    "van-dialog": "./static/vant/dialog/index"
+    "van-dialog": "./static/vant/dialog/index",
+    "van-picker": "./static/vant/picker/index"
   }
 }

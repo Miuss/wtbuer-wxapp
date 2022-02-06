@@ -1,0 +1,12 @@
+<template name="0ca0cb28">
+  <view class="_div data-v-0445fc10">
+    <view class="_div data-v-0445fc10 bind-title">绑定武汉工商学院教务系统账号</view>
+    <van-cell-group custom-class="bind-form" inset class="_van-cell-group data-v-0445fc10">
+      <van-field value="{{username}}" title-width="3.2em" size="large" clearable label="账号" placeholder="请输入学号 / 教师工号" bindchange="handleProxy" data-eventid="{{'0'}}" data-comkey="{{$k}}" class="_van-field data-v-0445fc10"></van-field>
+      <van-field value="{{password}}" title-width="3.2em" size="large" type="password" label="密码" placeholder="请输入密码" border="{{false}}" bindchange="handleProxy" data-eventid="{{'1'}}" data-comkey="{{$k}}" class="_van-field data-v-0445fc10"></van-field>
+    </van-cell-group>
+    <view class="_div data-v-0445fc10 bind-bottom">
+      <van-button class="_van-button data-v-0445fc10 bind-button" color="#4562e5" type="primary" custom-style="border-radius: 8px;" block bindtap="handleProxy" data-eventid="{{'2'}}" data-comkey="{{$k}}">立即绑定</van-button>
+    </view>
+  </view>
+</template>

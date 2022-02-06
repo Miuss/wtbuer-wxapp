@@ -3,3 +3,5 @@
 <import src="/pages/index/basic/square/index.vue.wxml" />
 <import src="/pages/index/basic/forum/index.vue.wxml" />
 <import src="/pages/index/basic/me/index.vue.wxml" />
+<import src="/components/bindMemberForm.vue.wxml" />
+<import src="/components/courseList.vue.wxml" />

@@ -14,14 +14,14 @@
       <div class="sub-title">由人工智能学院学生运营 🤖</div>
     </div>
     <div class="login-action" style="bottom: 20px;">
-      <van-button type="primary" @tap="login">微信账号快速登录</van-button>
+      <van-button type="primary" @click="wxlogin">微信账号快速登录</van-button>
       <div class="login-tips">提示：登录后绑定教务账号才能查阅课表噢~</div>
     </div>
   </div>
 </template>
 
 <script>
-import { wxlogin, getUserProfile, request } from '@/utils/fetch'
+import { wxlogin, getUserProfile } from '@/utils/fetch'
 import logo from '@/assets/images/logo.png'
 
 export default {
@@ -36,41 +36,18 @@ export default {
     }
   },
   methods: {
-    async login () {
-      try {
-        const infoResult = await getUserProfile()
-        const loginResult = await wxlogin()
+    async wxlogin () {
+      const infoResult = await getUserProfile()
+      const loginResult = await wxlogin()
 
-        if (infoResult.userInfo === '' || loginResult.code === '') {
-          throw new Error('登录失败，请重试')
-        }
-
-        const res = await request({
-          url: '/user/login',
-          method: 'POST',
-          data: {
-            code: loginResult.code,
-            userInfo: JSON.stringify(infoResult.userInfo)
-          }
-        })
-
-        if (!res.code) {
-          this.$store.commit('UPDATE_USER', res.data)
-          mpvue.setStorageSync('token', res.data.token)
-          wx.redirectTo({
-            url: '/pages/index/main'
-          })
-        } else {
-          throw new Error('服务器处理错误，请重试')
-        }
-      } catch (err) {
-        console.error(err)
-        wx.showToast({
-          title: err,
-          icon: 'none',
-          duration: 2000
-        })
+      if (infoResult.userInfo === '' || loginResult.code === '') {
+        throw new Error('登录失败，请重试')
       }
+
+      this.$store.dispatch('login', {
+        code: loginResult.code,
+        userInfo: infoResult.userInfo
+      })
     }
   }
 }

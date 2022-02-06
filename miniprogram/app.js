@@ -2,15 +2,15 @@ require("./common/manifest.js")
 require("./common/vendor.js")
 global.webpackJsonpMpvue([3],{
 
-/***/ 47:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__App__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__store__ = __webpack_require__(46);
 
 
 
@@ -25,17 +25,17 @@ app.$mount();
 
 /***/ }),
 
-/***/ 48:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_mpvue_loader_lib_selector_type_script_index_0_App_vue__ = __webpack_require__(53);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(49)
+  __webpack_require__(51)
 }
-var normalizeComponent = __webpack_require__(3)
+var normalizeComponent = __webpack_require__(2)
 /* script */
 
 /* template */
@@ -77,44 +77,121 @@ if (false) {(function () {
 
 /***/ }),
 
-/***/ 49:
+/***/ 51:
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
 
-/***/ 51:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator__);
+
+
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   created: function created() {
-    // 调用API从本地缓存中获取数据
-    /*
-     * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
-     * 微信：mpvue === wx, mpvuePlatform === 'wx'
-     * 头条：mpvue === tt, mpvuePlatform === 'tt'
-     * 百度：mpvue === swan, mpvuePlatform === 'swan'
-     * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
-     */
+    var _this = this;
 
-    // 启动时获取 token
-    var token = global.mpvue.getStorageSync('token') || '';
-    if (token !== '') {
-      this.$store.commit('UPDATE_TOKEN', token);
-    } else {
-      wx.redirectTo({
-        url: '/pages/login/main'
-      });
-    }
+    return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+      var token;
+      return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.getSystemInfo();
+
+            case 2:
+
+              _this.$store.dispatch('fetchParams');
+
+              // 启动时获取 token
+              token = wx.getStorageSync('token') || '';
+
+
+              if (token !== '') {
+                _this.$store.commit('UPDATE_TOKEN', token);
+                _this.$store.dispatch('checkToken');
+                _this.$store.dispatch('getUserInfo');
+                _this.getStorageCourseList();
+                _this.getStorageCourseIds();
+              } else {
+                wx.redirectTo({
+                  url: '/pages/login/main'
+                });
+              }
+
+            case 5:
+            case 'end':
+              return _context.stop();
+          }
+        }
+      }, _callee, _this);
+    }))();
   },
-  log: function log() {
-    console.log('log at:' + Date.now());
+
+  methods: {
+    getStorageCourseList: function getStorageCourseList() {
+      var courseList = wx.getStorageSync('courseList') || [];
+
+      if (courseList.length > 0) {
+        this.$store.commit('UPDATE_COURSELIST', courseList);
+        console.log(this.$store.state);
+      }
+    },
+    getStorageCourseIds: function getStorageCourseIds() {
+      var courseIds = wx.getStorageSync('courseIds') || {};
+
+      if (courseIds) {
+        this.$store.commit('UPDATE_COURSEIDS', courseIds);
+      }
+    },
+    getSystemInfo: function getSystemInfo() {
+      var _this2 = this;
+
+      return __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
+        var res;
+        return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return wx.getSystemInfoSync();
+
+              case 3:
+                res = _context2.sent;
+
+                _this2.$store.commit('UPDATE_SYSTEMINFO', res);
+                console.log(_this2.$store.getters.systemInfo);
+                _context2.next = 11;
+                break;
+
+              case 8:
+                _context2.prev = 8;
+                _context2.t0 = _context2['catch'](0);
+
+                // Do something when catch error
+                console.error(_context2.t0);
+
+              case 11:
+              case 'end':
+                return _context2.stop();
+            }
+          }
+        }, _callee2, _this2, [[0, 8]]);
+      }))();
+    }
   }
 });
 
 /***/ })
 
-},[47]);
+},[49]);
