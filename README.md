@@ -1,5 +1,7 @@
 # wtbuer-wxapp
 
+## 本项目因使用mpvue，已弃坑，并转到新项目
+
 > Wtbuer-wxapp
 
 ## Build Setup
